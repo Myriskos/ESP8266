@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="el" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Θερμοκρασία Χώρου</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="main.js"></script> 
+    <script type = "text/javascript">
+     
+      function myfunction(txt)
+      {
+        document.getElementById("xoros").innerHTML = txt           
+      }
+        
+     //  var ws = new WebSocket("ws://myriskos.ddns.net/ws"); 
+      var ws = new WebSocket("ws://192.168.1.65/ws");
+
+      ws.onopen = function() {
+          //window.alert("Connected");
+       };
+
+       ws.onmessage = function(evt) {
+          document.getElementById("therm").innerHTML  = "Θερμοκρασία : " + evt.data ;
+      };
+
+    </script>
+
+  </head>
+  <body>
+
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+
+     <!-- <label class="logo">DesignX</label>  -->
+      <label id = "xoros"> Αρχική </label>
+     
+      <ul>
+        <li><a class="active" href="/ws" onclick="myfunction('Αρχική')" value="Call function" >Αρχική</a></li>
+		<li><a href="/on_led" onclick="myfunction('Σαλόνι')" value="Call function">Σαλόνι ON</a> </li>
+        <li><a href="/off_led" onclick="myfunction('Σαλόνι')" value="Call function">Σαλόνι OFF </a> </li>
+        <li><a href="/blue_on" onclick="myfunction('Κουζίνα')" value="Call function">Κουζίνα ON</a></li>
+        <li><a href="/Blue_off" onclick="myfunction('Κουζίνα')" value="Call function">Κουζίνα OFF </a></li>
+        <li><a href="#" onclick="myfunction('Μπάνιο')" value="Call function">Μπάνιο</a></li>
+	    </ul>
+    </nav>
+
+    <center>
+       <p  id = "therm">Temp: </p>
+    </center> 
+
+    <section></section>
+  </body>
+</html>

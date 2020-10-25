@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="el" dir="ltr">
+   <head>
+      <link rel="stylesheet" href="style.css">
+	  <meta charset="utf-8"> 
+      <script type = "text/javascript">
+        var ws = new WebSocket("ws://192.168.1.7/ws");
+ 
+        ws.onopen = function() {
+            window.alert("Connected");
+         };
+ 
+         ws.onmessage = function(evt) {
+            document.getElementById("display").innerHTML  = "Temp: " + evt.data + " C";
+        };
+ 
+      </script>
+   </head>
+ 
+   <body>
+       
+     <center>
+	   <div>
+	     <p> Θερμοκρασία χώρου  </p>
+         <p id = "display">Temp: </p>
+		 <p> </p>
+      </div>
+	  </center>
+   </body>
+</html>

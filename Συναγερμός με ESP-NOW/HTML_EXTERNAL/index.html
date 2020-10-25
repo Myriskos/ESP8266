@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="el" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Responsive Navbar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
+
+    <script type = "text/javascript">
+      var ws = new WebSocket("ws://192.168.1.7/ws");
+
+      ws.onopen = function() {
+          window.alert("Connected");
+       };
+
+       ws.onmessage = function(evt) {
+          document.getElementById("display").innerHTML  = "Θερμοκρασία χώρου: " + evt.data + " C";
+      };
+
+    </script>
+
+
+
+
+
+  </head>
+  <body>
+
+    <center>
+      <div>
+         <p id = "display">Temp: </p>
+      <p> </p>
+       </div>
+     </center> 
+
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo">DesignX</label>
+      <ul>
+        <li><a class="active" href="on">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Feedback</a></li>
+      </ul>
+    </nav>
+      
+  <p>
+    <a href="/on"> <button class="button">ON</button></a>
+    <a href="/off"><button class="button button2">OFF</button></a>
+  </p> 
+    
+
+    <section></section>
+      
+ 
+      
+      
+  </body>
+</html>
